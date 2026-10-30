@@ -1,0 +1,196 @@
+[gd_scene format=3 uid="uid://dgicrh41dq3tp"]
+
+[ext_resource type="Script" uid="uid://b75lna4ujwfy7" path="res://Scripts/Win.gd" id="1_0tf6y"]
+[ext_resource type="PackedScene" uid="uid://wc4gb8gj8nbp" path="res://Scenes/Player.tscn" id="2_knkkn"]
+[ext_resource type="Texture2D" uid="uid://djjlbowqjftmy" path="res://textures/images/House1.png" id="3_sxhdm"]
+[ext_resource type="Texture2D" uid="uid://d0ljtwqvjifd8" path="res://textures/images/House2.png" id="4_oss8w"]
+[ext_resource type="Texture2D" uid="uid://dlj40y7du06vv" path="res://textures/images/trees.png" id="4_pl8e4"]
+[ext_resource type="PackedScene" uid="uid://djwm18hu28wt1" path="res://Scenes/Map1.tscn" id="4_sxhdm"]
+[ext_resource type="Texture2D" uid="uid://bg1a2gu52vipd" path="res://textures/images/Sun.png" id="6_pl8e4"]
+[ext_resource type="Material" uid="uid://c5sovuxa4y6wj" path="res://shaders/Squiggle.tres" id="7_is6ib"]
+[ext_resource type="Script" uid="uid://6dv8ob5iyoll" path="res://Scripts/ScoreLabel.gd" id="8_b3i5h"]
+[ext_resource type="PackedScene" uid="uid://bh24aoqiq4fo6" path="res://Scenes/Bug.tscn" id="9_tkdr5"]
+[ext_resource type="AudioStream" uid="uid://yhxfs13uh75h" path="res://Sounds/AmbientMusic.wav" id="11_i4aq4"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sxhdm"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_oss8w"]
+sky_material = SubResource("ProceduralSkyMaterial_sxhdm")
+
+[sub_resource type="Environment" id="Environment_pl8e4"]
+background_mode = 2
+sky = SubResource("Sky_oss8w")
+glow_enabled = true
+
+[node name="Root" type="Node3D" unique_id=1253537290]
+script = ExtResource("1_0tf6y")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1217700790]
+environment = SubResource("Environment_pl8e4")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=893222235]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+
+[node name="Char" parent="." unique_id=1783592221 instance=ExtResource("2_knkkn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Map1" parent="." unique_id=1446220647 instance=ExtResource("4_sxhdm")]
+transform = Transform3D(-4.371139e-07, 0, -10, 0, 10, 0, 10, 0, -4.371139e-07, 0, 0, 0)
+
+[node name="Trees" type="Node" parent="." unique_id=1090078106]
+
+[node name="Tree" type="Sprite3D" parent="Trees" unique_id=1165261528]
+transform = Transform3D(1.1163753, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.947054, 19.850782)
+pixel_size = 0.25
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("4_pl8e4")
+
+[node name="Tree2" type="Sprite3D" parent="Trees" unique_id=1039922801]
+transform = Transform3D(1.1163753, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.947054, -20.144382)
+pixel_size = 0.25
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("4_pl8e4")
+
+[node name="Tree3" type="Sprite3D" parent="Trees" unique_id=873661487]
+transform = Transform3D(-4.8798316e-08, 0, -1, 0, 1, 0, 1.1163753, 0, -4.371139e-08, -34.99758, 7.947054, -0.14680092)
+pixel_size = 0.25
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("4_pl8e4")
+
+[node name="Tree4" type="Sprite3D" parent="Trees" unique_id=1290331477]
+transform = Transform3D(-4.8798316e-08, 0, -1, 0, 1, 0, 1.1163753, 0, -4.371139e-08, 34.99758, 7.947054, -0.14679916)
+pixel_size = 0.25
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("4_pl8e4")
+
+[node name="Houses" type="Node" parent="." unique_id=195380002]
+
+[node name="House" type="Sprite3D" parent="Houses" unique_id=535514435]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.2499, 2.3141024, 9)
+pixel_size = 0.06
+texture_filter = 0
+texture = ExtResource("3_sxhdm")
+
+[node name="House2" type="Sprite3D" parent="Houses" unique_id=644987905]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.249901, 3.6991024, 9)
+pixel_size = 0.06
+texture_filter = 0
+texture = ExtResource("4_oss8w")
+
+[node name="House3" type="Sprite3D" parent="Houses" unique_id=1243338208]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.750099, 2.3141024, 9)
+pixel_size = 0.06
+texture_filter = 0
+texture = ExtResource("3_sxhdm")
+
+[node name="House4" type="Sprite3D" parent="Houses" unique_id=566334027]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.7501, 3.6991024, 9)
+pixel_size = 0.06
+texture_filter = 0
+texture = ExtResource("4_oss8w")
+
+[node name="House5" type="Sprite3D" parent="Houses" unique_id=1979685131]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -26.7501, 2.3141024, -9.000002)
+pixel_size = 0.06
+texture_filter = 0
+texture = ExtResource("3_sxhdm")
+
+[node name="House6" type="Sprite3D" parent="Houses" unique_id=1818033172]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -8.750099, 3.6991024, -9.000001)
+pixel_size = 0.06
+texture_filter = 0
+texture = ExtResource("4_oss8w")
+
+[node name="House7" type="Sprite3D" parent="Houses" unique_id=667982223]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 9.249901, 2.3141024, -8.999999)
+pixel_size = 0.06
+texture_filter = 0
+texture = ExtResource("3_sxhdm")
+
+[node name="House8" type="Sprite3D" parent="Houses" unique_id=1047110871]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 27.2499, 3.6991024, -8.999998)
+pixel_size = 0.06
+texture_filter = 0
+texture = ExtResource("4_oss8w")
+
+[node name="Sun" type="Sprite3D" parent="." unique_id=1439906356]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 62.155445, 20, -44.61263)
+pixel_size = 0.0025
+billboard = 1
+fixed_size = true
+texture_filter = 0
+texture = ExtResource("6_pl8e4")
+
+[node name="Control" type="Control" parent="." unique_id=539528745]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control" unique_id=2023676986]
+material = ExtResource("7_is6ib")
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -92.0
+offset_top = 20.0
+offset_right = 92.0
+offset_bottom = 65.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "Bugs found: "
+horizontal_alignment = 1
+script = ExtResource("8_b3i5h")
+
+[node name="Barriers" type="Node" parent="." unique_id=2011146727]
+
+[node name="Barrier" type="CSGBox3D" parent="Barriers" unique_id=1937382802]
+transform = Transform3D(71.51976, 0, 0, 0, 4.5, 0, 0, 0, -0.100000024, 0, 2, -20.14701)
+visible = false
+use_collision = true
+
+[node name="Barrier2" type="CSGBox3D" parent="Barriers" unique_id=328661959]
+transform = Transform3D(71.51976, 0, 0, 0, 4.5, 0, 0, 0, -0.100000024, 0, 2, 19.85299)
+visible = false
+use_collision = true
+
+[node name="Barrier3" type="CSGBox3D" parent="Barriers" unique_id=806138672]
+transform = Transform3D(-1.8757369e-06, 0, 0.100000024, 0, 4.5, 0, 42.911858, 0, 4.37114e-09, 35, 2, -0.14701028)
+visible = false
+use_collision = true
+
+[node name="Barrier4" type="CSGBox3D" parent="Barriers" unique_id=692088252]
+transform = Transform3D(-1.8757369e-06, 0, 0.100000024, 0, 4.5, 0, 42.911858, 0, 4.37114e-09, -35, 2, -0.14701132)
+visible = false
+use_collision = true
+
+[node name="Bugs" type="Node" parent="." unique_id=121681304]
+
+[node name="Bug" parent="Bugs" unique_id=938801902 instance=ExtResource("9_tkdr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33, 1, 17)
+
+[node name="Bug2" parent="Bugs" unique_id=1910885073 instance=ExtResource("9_tkdr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.245943, 1, -11.04335)
+
+[node name="Bug3" parent="Bugs" unique_id=1840693001 instance=ExtResource("9_tkdr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.754057, 1, -0.04335022)
+
+[node name="Bug4" parent="Bugs" unique_id=1057061504 instance=ExtResource("9_tkdr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.754057, 1, -13.04335)
+
+[node name="Bug5" parent="Bugs" unique_id=1541130101 instance=ExtResource("9_tkdr5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.75406, 1, 16.95665)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1661084856]
+stream = ExtResource("11_i4aq4")
+volume_db = -15.0
+autoplay = true

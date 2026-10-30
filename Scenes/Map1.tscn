@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://djwm18hu28wt1"]
+
+[ext_resource type="PackedScene" uid="uid://chhbpt2ixjwl5" path="res://Map1.glb" id="1_j556s"]
+[ext_resource type="Material" uid="uid://duq22japis8qn" path="res://textures/Concrete.tres" id="2_6p4ww"]
+[ext_resource type="Material" uid="uid://b4qryo7u4livc" path="res://textures/Grass.tres" id="3_1f4ql"]
+[ext_resource type="Material" uid="uid://ddfaafjlbc08k" path="res://textures/Asphalt.tres" id="4_hv236"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_j556s"]
+points = PackedVector3Array(0.3333333, -1.9557774e-06, 3.5, -0.3333333, -1.9557774e-06, 3.5, 0.27329677, -0.019999998, 3.5, 0.3333333, -1.9557774e-06, -3.5, -0.2667058, -0.019999998, 3.5, -0.3333333, -1.9557774e-06, -3.5, 0.27329677, -0.019999998, -3.5, -0.2667058, -0.019999998, -3.5)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_6p4ww"]
+points = PackedVector3Array(2, 0, 3.5, 2, 0.022945493, 2.5345535, 1.1664058, 0.022945493, 3.5, -0.3335942, 0, 3.5, 2, 0, -3.5, 2, 0.022945493, -1.7506852, -1.9999999, 0.022945493, 3.5, -1.9999999, 0, 1.5697923, -0.3335942, 0, -3.5, 1.5830072, 0.022945493, -3.5, -1.9999999, 0.022945493, -3.5, -1.9999999, 0, -2.6256852)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_1f4ql"]
+points = PackedVector3Array(0.2733333, -0.019999998, 3.5, -0.26666665, -0.019999998, 3.5, 0.2733333, -0.019999998, -3.5, -0.26666665, -0.019999998, -3.5)
+
+[node name="Map1" unique_id=1446220647 instance=ExtResource("1_j556s")]
+
+[node name="Plane" parent="." index="0" unique_id=1492517096]
+material_override = ExtResource("2_6p4ww")
+
+[node name="Plane_001" parent="." index="1" unique_id=1869448659]
+material_override = ExtResource("3_1f4ql")
+
+[node name="Plane_002" parent="." index="2" unique_id=1031845876]
+material_override = ExtResource("4_hv236")
+
+[node name="Collision" type="StaticBody3D" parent="." index="3" unique_id=801717992]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collision" index="0" unique_id=1357107900]
+shape = SubResource("ConvexPolygonShape3D_j556s")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Collision" index="1" unique_id=779938186]
+shape = SubResource("ConvexPolygonShape3D_6p4ww")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Collision" index="2" unique_id=380118129]
+shape = SubResource("ConvexPolygonShape3D_1f4ql")

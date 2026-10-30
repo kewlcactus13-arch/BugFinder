@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://ddfaafjlbc08k"]
+
+[ext_resource type="Texture2D" uid="uid://lhxl8wai0g50" path="res://textures/images/Concrete.png" id="1_37mvc"]
+
+[resource]
+albedo_color = Color(0.40146014, 0.40146014, 0.40146014, 1)
+albedo_texture = ExtResource("1_37mvc")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+texture_filter = 0

@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bh24aoqiq4fo6"]
+
+[ext_resource type="Texture2D" uid="uid://prt0sdl651ep" path="res://textures/images/Bug.png" id="1_aqmum"]
+[ext_resource type="Script" uid="uid://dt8jr12vmev1j" path="res://Scripts/BugCollect.gd" id="2_wiidw"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_31sbn"]
+radius = 2.0
+
+[node name="Bug" type="Sprite3D" unique_id=938801902]
+billboard = 1
+texture_filter = 0
+texture = ExtResource("1_aqmum")
+
+[node name="Bug_area" type="Area3D" parent="." unique_id=1558349383]
+script = ExtResource("2_wiidw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bug_area" unique_id=624209474]
+shape = SubResource("CylinderShape3D_31sbn")
+
+[connection signal="area_entered" from="Bug_area" to="Bug_area" method="_on_area_entered"]

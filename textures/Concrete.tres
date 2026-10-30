@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://duq22japis8qn"]
+
+[ext_resource type="Texture2D" uid="uid://lhxl8wai0g50" path="res://textures/images/Concrete.png" id="1_d6q77"]
+
+[resource]
+albedo_texture = ExtResource("1_d6q77")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+texture_filter = 0

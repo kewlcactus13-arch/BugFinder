@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://wc4gb8gj8nbp"]
+
+[ext_resource type="Script" uid="uid://deyp7hd4rap20" path="res://Scripts/PlayerMovement.gd" id="1_rpqav"]
+[ext_resource type="Script" uid="uid://kpnnwjoxnr6w" path="res://Scripts/CamMovement.gd" id="2_kyqiw"]
+[ext_resource type="Material" uid="uid://daueumcvvm1i5" path="res://shaders/Pixelate.tres" id="3_gntrk"]
+[ext_resource type="Script" uid="uid://csked5ktbs7cw" path="res://Scenes/CollectSound.gd" id="4_5ixxa"]
+[ext_resource type="AudioStream" uid="uid://d3ll0r8tv512a" path="res://Sounds/Grab.wav" id="5_nn08x"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_31sbn"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_31sbn"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_31sbn"]
+radius = 2.0
+
+[node name="Char" type="CharacterBody3D" unique_id=1783592221]
+script = ExtResource("1_rpqav")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=995828783]
+shape = SubResource("CapsuleShape3D_31sbn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1795764885]
+mesh = SubResource("CapsuleMesh_31sbn")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1319851865]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49098063, 0)
+script = ExtResource("2_kyqiw")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=921023561]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=941682695]
+material = ExtResource("3_gntrk")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Collect" type="Area3D" parent="." unique_id=725137636]
+script = ExtResource("4_5ixxa")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Collect" unique_id=1353819046]
+shape = SubResource("SphereShape3D_31sbn")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=929194646]
+stream = ExtResource("5_nn08x")
+
+[connection signal="area_entered" from="Collect" to="Collect" method="_on_area_entered"]

@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://ciqvdkcgxv48b"]
+
+[ext_resource type="PackedScene" uid="uid://wc4gb8gj8nbp" path="res://Scenes/Player.tscn" id="1_go42g"]
+[ext_resource type="Material" uid="uid://b4qryo7u4livc" path="res://textures/Grass.tres" id="2_sreuk"]
+[ext_resource type="Texture2D" uid="uid://djjlbowqjftmy" path="res://textures/images/House1.png" id="3_tq6uv"]
+[ext_resource type="Texture2D" uid="uid://d0ljtwqvjifd8" path="res://textures/images/House2.png" id="4_12c36"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sxhdm"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_oss8w"]
+sky_material = SubResource("ProceduralSkyMaterial_sxhdm")
+
+[sub_resource type="Environment" id="Environment_pl8e4"]
+background_mode = 2
+sky = SubResource("Sky_oss8w")
+glow_enabled = true
+
+[node name="Root" type="Node3D" unique_id=1253537290]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1217700790]
+environment = SubResource("Environment_pl8e4")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=893222235]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Char" parent="." unique_id=1783592221 instance=ExtResource("1_go42g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=2047905468]
+material_override = ExtResource("2_sreuk")
+use_collision = true
+size = Vector3(32, 0.1, 10)
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=535514435]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1.615, 4)
+pixel_size = 0.05
+texture_filter = 0
+texture = ExtResource("3_tq6uv")
+
+[node name="Sprite3D2" type="Sprite3D" parent="." unique_id=644987905]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 3, 4)
+pixel_size = 0.05
+texture_filter = 0
+texture = ExtResource("4_12c36")
