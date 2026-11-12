@@ -1,15 +1,15 @@
 # BugFinder!
 
 A small project for Hackclub Crescent about finding beetles in some eerie neighborhood
-controls are simple lol -
-Controls: W,Q,S,E (Movement) | Q,E (Camera) | Space (Jump)
+  controls are simple lol -
+    Controls: W,Q,S,E (Movement) | Q,E (Camera) | Space (Jump)
 ---
 any and all info is provided on the itch page but will also be written here
-windows 10 minimum
-uhh like some ram?
-mustn't be an arm system
-have a display
----
+- windows 10 minimum
+- uhh like some ram?
+- mustn't be an arm system
+- have a display
+
 Downloadable on itch
 Link: https://kewlcactus13.itch.io/bugfinder
 
